@@ -115,6 +115,29 @@ var geoJson = [{
           ['http://i.imgur.com/3EgVtZr.jpg','Times Square has the highest annual attendance rate of any tourist attraction in the world.']
           
         ]
+
+    }
+},
+{
+    type: 'Feature',
+    "geometry": { "type": "Point", "coordinates": [-79.962680, -2.129754]},
+    "properties": {
+        'title': 'Sociovivienda',
+        'marker-color': '#023859',
+        'marker-symbol': 'building',
+        'marker-size': 'medium',
+
+        // Store the image url and caption in an array.
+        'images': [
+          ['http://i.imgur.com/1VlHaV2.jpg','Peter Minuit is credited with the purchase of the island of Manhattan in 1626.'],
+          ['http://i.imgur.com/A6utfEE.jpg','During the mid-19th Century, Broadway was extended the length of Manhattan.'],
+          ['http://i.imgur.com/o6L4WMD.jpg','Times Square has the highest annual attendance rate of any tourist attraction in the world.'],
+          ['http://i.imgur.com/EHEJ9vn.jpg','Peter Minuit is credited with the purchase of the island of Manhattan in 1626.'],
+          ['http://i.imgur.com/DyJCK9f.jpg','During the mid-19th Century, Broadway was extended the length of Manhattan.'],
+          ['http://i.imgur.com/6wM5L8M.jpg','Times Square has the highest annual attendance rate of any tourist attraction in the world.'],
+          ['http://i.imgur.com/vsSGWrd.jpg','Times Square has the highest annual attendance rate of any tourist attraction in the world.']
+          
+        ]
         
     }
 },
@@ -196,7 +219,7 @@ $('#map').on('click', '.popup .cycle a', function() {
     return false;
 });
 
-map.setView([-2.223540, -79.893608], 12);
+map.setView([-2.223540, -79.893608], 13);
 
 
 </script>
