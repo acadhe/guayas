@@ -6,12 +6,38 @@
 <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 <script src='https://api.mapbox.com/mapbox.js/v2.2.1/mapbox.js'></script>
 <link href='https://api.mapbox.com/mapbox.js/v2.2.1/mapbox.css' rel='stylesheet' />
+  <!-- Bootstrap core CSS -->
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="http://getbootstrap.com/examples/navbar-static-top/navbar-static-top.css" rel="stylesheet">
 <style>
-  body { margin:0; padding:0; }
+  body { margin:0; padding:0;}
   #map { position:absolute; top:0; bottom:0; width:100%; }
 </style>
 </head>
 <body>
+     <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="https://designinginclusion.wordpress.com/">Designing Inclusion, Guayaquil
+        </div>
+        <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+     
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="https://designinginclusion.wordpress.com/">Offical workshop website</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
 <style>
 .popup {
   text-align:center;
@@ -254,7 +280,7 @@ $('#map').on('click', '.popup .cycle a', function() {
     return false;
 });
 
-map.setView([-2.223540, -79.893608], 12);
+map.setView([-2.201793, -79.896698], 12);
 
 
 </script>
