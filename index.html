@@ -305,7 +305,7 @@ $('#map').on('click', '.popup .cycle a', function() {
     return false;
 });
 
-map.myLayer.on('click', function(e) {
+  $('#map').featureLayer.on('click', function(e) {
         map.panTo(e.layer.getLatLng());
     });
 
