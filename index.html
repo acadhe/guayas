@@ -305,9 +305,6 @@ $('#map').on('click', '.popup .cycle a', function() {
     return false;
 });
 
-  $('#map').featureLayer.on('click', function(e) {
-        map.panTo(e.layer.getLatLng());
-    });
 
 map.setView([-2.201793, -79.896698], 12);
 new L.Control.Zoom({ position: 'bottomright' }).addTo(map);
