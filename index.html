@@ -308,7 +308,7 @@ $('#map').on('click', '.popup .cycle a', function() {
 
 map.setView([-2.201793, -79.896698], 12);
 new L.Control.Zoom({ position: 'bottomright' }).addTo(map);
-map.marker.on('click', function(e) {
+map.myLayer.on('click', function(e) {
         map.panTo(e.layer.getLatLng());
     });
 
