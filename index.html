@@ -87,7 +87,7 @@
 <script src='https://code.jquery.com/jquery-1.11.0.min.js'></script>
 <script>
 L.mapbox.accessToken = 'pk.eyJ1IjoiYWNhZGhlIiwiYSI6ImM2NTE1YWQ5NWUyNDZhYjg5MWI4YTBiNGQyOGI2ZDkzIn0.qEZChHwM01UdLPoG1srtfQ';
-var map = L.mapbox.map('map', 'mapbox.outdoors');
+var map = L.mapbox.map('map', 'mapbox.outdoors', { zoomControl: false });
 
 var myLayer = L.mapbox.featureLayer().addTo(map);
 
@@ -304,6 +304,8 @@ $('#map').on('click', '.popup .cycle a', function() {
 });
 
 map.setView([-2.201793, -79.896698], 12);
+new L.Control.Zoom({ position: 'bottomright' }).addTo(map);
+
 
 
 
