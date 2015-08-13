@@ -91,9 +91,7 @@ var map = L.mapbox.map('map', 'mapbox.outdoors', { zoomControl: false });
 
 var myLayer = L.mapbox.featureLayer().addTo(map);
 
-map.featureLayer.on('click', function(e) {
-        map.panTo(e.layer.getLatLng());
-    });
+
 
 var geoJson = [{
     type: 'Feature',
@@ -306,6 +304,10 @@ $('#map').on('click', '.popup .cycle a', function() {
     $newSlide.addClass('active').show();
     return false;
 });
+
+map.myLayer.on('click', function(e) {
+        map.panTo(e.layer.getLatLng());
+    });
 
 map.setView([-2.201793, -79.896698], 12);
 new L.Control.Zoom({ position: 'bottomright' }).addTo(map);
