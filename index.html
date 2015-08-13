@@ -91,6 +91,10 @@ var map = L.mapbox.map('map', 'mapbox.outdoors', { zoomControl: false });
 
 var myLayer = L.mapbox.featureLayer().addTo(map);
 
+map.featureLayer.on('click', function(e) {
+        map.panTo(e.layer.getLatLng());
+    });
+
 var geoJson = [{
     type: 'Feature',
     "geometry": { "type": "Point", "coordinates": [-79.945836, -2.227781]},
