@@ -101,11 +101,11 @@ L.mapbox.accessToken = 'pk.eyJ1IjoiYWNhZGhlIiwiYSI6ImM2NTE1YWQ5NWUyNDZhYjg5MWI4Y
 
 new L.Control.Zoom({ position: 'bottomright' }).addTo(map);
 
-map.featureLayer.on('click', function(e) {
+var myLayer = L.mapbox.featureLayer().addTo(map);
+
+map.myLayer.on('click', function(e) {
     map.setView([e.latLng.lat, e.latLng.lng], 9);
 });
-
-var myLayer = L.mapbox.featureLayer().addTo(map);
 
 
 
