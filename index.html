@@ -103,7 +103,7 @@ new L.Control.Zoom({ position: 'bottomright' }).addTo(map);
 
 var myLayer = L.mapbox.featureLayer().addTo(map);
 
-map.featurelayer.on('click', function(e) {
+L.map.featurelayer.on('click', function(e) {
      map.panTo(e.layer.getLatLng());
     });
 
