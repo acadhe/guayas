@@ -101,7 +101,9 @@ L.mapbox.accessToken = 'pk.eyJ1IjoiYWNhZGhlIiwiYSI6ImM2NTE1YWQ5NWUyNDZhYjg5MWI4Y
 
 new L.Control.Zoom({ position: 'bottomright' }).addTo(map);
 
+
 var myLayer = L.mapbox.featureLayer().addTo(map);
+
 
 
 var geoJson = [{
@@ -316,9 +318,7 @@ $('#map').on('click', '.popup .cycle a', function() {
     return false;
 });
 
-   map.myLayer.on('click', function(e) {
-        map.panTo(e.layer.getLatLng());
-    });
+
 
 </script>
 
