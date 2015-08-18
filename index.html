@@ -88,7 +88,7 @@
 <script>
 L.mapbox.accessToken = 'pk.eyJ1IjoiYWNhZGhlIiwiYSI6ImM2NTE1YWQ5NWUyNDZhYjg5MWI4YTBiNGQyOGI2ZDkzIn0.qEZChHwM01UdLPoG1srtfQ';
 
- var map = L.mapbox.map('map', null, { zoomControl: false }, {zoomAnimation: true}).setView([-2.201793, -79.896698], 12);
+ var map = L.mapbox.map('map', null, { zoomControl: false }, {zoomAnimation: true}, {markerZoomAnimation: true}).setView([-2.201793, -79.896698], 12);
 
   var layers = {
       Dark: L.mapbox.tileLayer('mapbox.dark'),
@@ -103,10 +103,6 @@ new L.Control.Zoom({ position: 'bottomright' }).addTo(map);
 
 
 var myLayer = L.mapbox.featureLayer().addTo(map);
-
-   map.myLayer.on('click', function(e) {
-        map.panTo(e.layer.getLatLng());
-    });
 
 
 var geoJson = [{
