@@ -316,6 +316,10 @@ $('#map').on('click', '.popup .cycle a', function() {
     return false;
 });
 
+   map.featureLayer.on('click', function(e) {
+        map.panTo(e.layer.getLatLng());
+    });
+
 </script>
 
 
