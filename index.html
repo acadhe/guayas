@@ -103,10 +103,6 @@ new L.Control.Zoom({ position: 'bottomright' }).addTo(map);
 
 var myLayer = L.mapbox.featureLayer().addTo(map);
 
-L.map.featurelayer.on('click', function(e) {
-     map.panTo(e.layer.getLatLng());
-    });
-
 
 var geoJson = [{
     type: 'Feature',
