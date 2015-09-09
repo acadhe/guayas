@@ -83,7 +83,7 @@ L.mapbox.accessToken = 'pk.eyJ1IjoiYWNhZGhlIiwiYSI6ImM2NTE1YWQ5NWUyNDZhYjg5MWI4Y
   };
 
   layers.Outdoors.addTo(map);
-  L.control.layers(layers).addTo(map);
+  L.control.layers(layers, { position: 'bottomleft' }).addTo(map);
 
 new L.Control.Zoom({ position: 'bottomright' }).addTo(map);
 
