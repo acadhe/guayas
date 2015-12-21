@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Guayaquil</title>
+  <link rel="shortcut icon" href="https://d30y9cdsu7xlg0.cloudfront.net/png/180542-200.png"/>
+    
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="css/theme.css" rel="stylesheet">
+    
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<script src='https://api.mapbox.com/mapbox.js/v2.2.1/mapbox.js'></script>
+<link href='https://api.mapbox.com/mapbox.js/v2.2.1/mapbox.css' rel='stylesheet' />
+
+<style>
+  body { margin:0; padding:0;}
+  nav {position: absolute; top:0; width:100%;}
+  #map { position:absolute; top:0px; bottom:0; width:100%; }
+</style>
+</head>
+<body>
+    <!-- Fixed navbar -->
+     <div class="navbar-wrapper">
+        <div class="container">
+          <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+              <div class="navbar-header">
+          
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+          
+              <a class="navbar-brand" href="https://designinginclusion.wordpress.com/" target="_blank">DESIGNING INCLUSION workshop</a>
+            </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#" id="activeProject">Guayaquil Storyteller</a></li>
+      
+          </ul>
+        
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+    </div>
+    </div>
+
+<style>
+.popup {
+  text-align:center;
+  }
+.popup .slideshow .image        { display:none; }
+.popup .slideshow .image.active { display:block; }
+.popup .slideshow img {
+  width:100%;
+  }
+.popup .slideshow .caption {
+  background:#DAD8CC;
+  padding:10px;
+  }
+.popup .cycle {
+  padding:10px 0 20px;
+  }
+  .popup .cycle a.prev { float:left; }
+  .popup .cycle a.next { float:right; }
+  
+  .navbar-wrapper {
+    background: rgba(0,0,0,0.2);
+}
+</style>
+
+<div id='map'></div>
+
+<!-- jQuery is required for this example. -->
+<script src='https://code.jquery.com/jquery-1.11.0.min.js'></script>
+<script>
+L.mapbox.accessToken = 'pk.eyJ1IjoiYWNhZGhlIiwiYSI6ImM2NTE1YWQ5NWUyNDZhYjg5MWI4YTBiNGQyOGI2ZDkzIn0.qEZChHwM01UdLPoG1srtfQ';
+
+ var map = L.mapbox.map('map', null, { zoomControl: false }, {zoomAnimation: true}, {markerZoomAnimation: true}).setView([-2.201793, -79.896698], 12);
+
+  var layers = {
+      Dark: L.mapbox.tileLayer('mapbox.dark'),
+      Outdoors: L.mapbox.tileLayer('mapbox.outdoors'),
+      Satellite: L.mapbox.tileLayer('mapbox.satellite')
+  };
+
+  layers.Outdoors.addTo(map);
+L.control.layers(layers, {position:'bottomleft'}).addTo(map);
+
+new L.Control.Zoom({ position: 'bottomright' }).addTo(map);
+
+
+var myLayer = L.mapbox.featureLayer().addTo(map);
+
+
+var geoJson = [{
+    type: 'Feature',
+    "geometry": { "type": "Point", "coordinates": [-79.945836, -2.227781]},
+    "properties": {
+        'title': 'Tramo 10b',
+        'marker-color': '#FF530D',
+        'marker-symbol': 'building',
+        'marker-size': 'small',
+
+        // Store the image url and caption in an array.
+        'images': [
+          ['http://i.imgur.com/KNQfbN4.jpg','Public space has become dangerous in this neighborhood.'],
+          ['http://i.imgur.com/CRLoAh7.jpg','It is on constinous development self-hand made.'],
+          ['http://i.imgur.com/KFJUlYg.jpg','Many families use their ground floor as ecnomic business with stores and workshops.'],
+          ['http://i.imgur.com/R3ZARsZ.jpg','Despite the high levels of E.Salado polltion, fishing is still an importat economic activity for residents.'],
+          ['http://i.imgur.com/HKkCGty.jpg','The front lines of houses of the Salado throw directly their waste to the water.'],
+          ['http://i.imgur.com/WHKlZgW.jpg','All of them are in eviction danger and some were forced to destroy and abandon their homes.']
+        ]
+    }
+}, 
+{
+    type: 'Feature',
+    "geometry": { "type": "Point", "coordinates": [-79.883544, -2.285205]},
+    "properties": {
+        'title': 'Playita del Guasmo',
+        'marker-color': '#FFB03B',
+        'marker-symbol': 'swimming',
+        'marker-size': 'medium',
+
+        // Store the image url and caption in an array.
+        'images': [
+          ['http://i.imgur.com/faji9mM.jpg?1','It is a renovated Wellness Centre by the mayor of Guayaquil for the citywide'],
+          ['http://i.imgur.com/4XqQYxO.jpg?1','Now a days planned business are wasted'],
+          ['http://i.imgur.com/A2G76d1.jpg?1','Canoeing school is one of the main attractions that brings together young people from the neighborhood']
+          
+        ]
+    }
+}, 
+{
+    type: 'Feature',
+    "geometry": { "type": "Point", "coordinates": [-79.901569, -2.190082]},
+    "properties": {
+        'title': 'Malecon del Salado',
+        'marker-color': '#023859',
+        'marker-symbol': 'school',
+        'marker-size': 'medium',
+
+        // Store the image url and caption in an array.
+        'images': [
+          ['http://i.imgur.com/X28gdnI.jpg','The intention of this project was to create a safe area within the neighborhood'],
+          ['http://i.imgur.com/cEIFEJ0.jpg','But they didn´t make too much to improve the quality of housing'],
+          ['http://i.imgur.com/rbLnFro.jpg','Some controlled entrance zones were planned in put to enter to the malecon'],
+          ['http://i.imgur.com/lktkYel.jpg','But there is a lack of connectivity in most of the neighborhood']
+          
+        ]
+    }
+},
+{
+    type: 'Feature',
+    "geometry": { "type": "Point", "coordinates": [-79.943336, -2.235195]},
+    "properties": {
+        'title': 'Tramo Renovado',
+        'marker-color': '#FFB03B',
+        'marker-symbol': 'building',
+        'marker-size': 'small',
+
+        // Store the image url and caption in an array.
+        'images': [
+          ['http://i.imgur.com/03WUd5u.jpg','New recreation public space was created for this strech of the Salado'],
+          ['http://i.imgur.com/GLu4goi.jpg','They made a good job cleaning the water and making it safe for people'],
+          ['http://i.imgur.com/3EgVtZr.jpg','But it is still a controlled space by creating barriers that clash with the culture of citizenship']
+          
+        ]
+
+    }
+},
+{
+    type: 'Feature',
+    "geometry": { "type": "Point", "coordinates": [-79.962680, -2.129754]},
+    "properties": {
+        'title': 'Sociovivienda',
+        'marker-color': '#FFD726',
+        'marker-symbol': 'village',
+        'marker-size': 'medium',
+
+        // Store the image url and caption in an array.
+        'images': [
+          ['http://i.imgur.com/1VlHaV2.jpg','New housing social development for evicted families from the Salado'],
+          ['http://i.imgur.com/A6utfEE.jpg','most of the streets are unpaved and with out essential infrastructure'],
+          ['http://i.imgur.com/o6L4WMD.jpg','You can notice inmidiatly how rapidly is getting deteriorated'],
+          ['http://i.imgur.com/EHEJ9vn.jpg','Unplanned public space make people to invent their owns'],
+          ['http://i.imgur.com/DyJCK9f.jpg','Relationship with water has not changed it is still polluted'],
+          ['http://i.imgur.com/6wM5L8M.jpg','Only few options were left in order to increase the size and spaces of the houses'],
+          ['http://i.imgur.com/vsSGWrd.jpg','The complex is too far away from the city it takes too many time and money for families to commute']
+          
+        ]
+        
+    }
+},
+{
+    type: 'Feature',
+    "geometry": { "type": "Point", "coordinates": [-79.863653, -2.136095]},
+    "properties": {
+        'title': 'Samborondón',
+        'marker-color': '#BF815E',
+        'marker-symbol': 'town',
+        'marker-size': 'large',
+
+        // Store the image url and caption in an array.
+        'images': [
+          ['http://i.imgur.com/synAO4K.jpg','High income housing projects were developed in areas that should be protected'],
+          ['http://i.imgur.com/fkjmDP4.jpg','The created big gated communities that break the relationship with the city']
+          
+        ]
+        
+    }
+},
+{
+    type: 'Feature',
+    "geometry": { "type": "Point", "coordinates": [-79.935628, -2.196851]},
+    "properties": {
+        'title': 'Mercado de Mariscos',
+        'marker-color': '#A7363E',
+        'marker-symbol': 'shop',
+        'marker-size': 'small',
+
+        // Store the image url and caption in an array.
+        'images': [
+          ['http://i.imgur.com/JH5Otsj.png','Providing most of the fish for the city, unfortunatly Salado is very polluted and food quality is unknown']
+          
+        ]
+        
+    }
+},
+{
+    type: 'Feature',
+    "geometry": { "type": "Point", "coordinates": [-79.876099, -2.217925]},
+    "properties": {
+        'title': 'Isla Santay',
+        'marker-color': '#61B014',
+        'marker-symbol': 'bicycle',
+        'marker-size': 'large',
+
+        // Store the image url and caption in an array.
+        'images': [
+          ['http://i.imgur.com/G1gL6UKl.jpg?1','Sustaintability housing project was developed after informal settlements were on risk'],
+          ['http://i.imgur.com/LlXJtGhl.jpg?1','They build a nice bike path in orther to conect the island with the industrial zone'],
+          ['http://i.imgur.com/ECIO3hOl.jpg?1','Now a days is one of the most attractive places for foreings and residents of Guayaquil']
+        ]
+    }
+
+}];
+
+// Add custom popup html to each marker.
+myLayer.on('layeradd', function(e) {
+    var marker = e.layer;
+    var feature = marker.feature;
+    var images = feature.properties.images
+    var slideshowContent = '';
+
+    for(var i = 0; i < images.length; i++) {
+        var img = images[i];
+
+        slideshowContent += '<div class="image' + (i === 0 ? ' active' : '') + '">' +
+                              '<img src="' + img[0] + '" />' +
+                              '<div class="caption">' + img[1] + '</div>' +
+                            '</div>';
+    }
+
+    // Create custom popup content
+    var popupContent =  '<div id="' + feature.properties.id + '" class="popup">' +
+                            '<h2>' + feature.properties.title + '</h2>' +
+                            '<div class="slideshow">' +
+                                slideshowContent +
+                            '</div>' +
+                            '<div class="cycle">' +
+                                '<a href="#" class="prev">&laquo; Previous</a>' +
+                                '<a href="#" class="next">Next &raquo;</a>' +
+                            '</div>'
+                        '</div>';
+
+    // http://leafletjs.com/reference.html#popup
+    marker.bindPopup(popupContent,{
+        closeButton: true,
+        minWidth: 320
+    });
+});
+
+// Add features to the map
+myLayer.setGeoJSON(geoJson);
+
+$('#map').on('click', '.popup .cycle a', function() {
+    var $slideshow = $('.slideshow'),
+        $newSlide;
+
+    if ($(this).hasClass('prev')) {
+        $newSlide = $slideshow.find('.active').prev();
+        if ($newSlide.index() < 0) {
+            $newSlide = $('.image').last();
+        }
+    } else {
+        $newSlide = $slideshow.find('.active').next();
+        if ($newSlide.index() < 0) {
+            $newSlide = $('.image').first();
+        }
+    }
+
+    $slideshow.find('.active').removeClass('active').hide();
+    $newSlide.addClass('active').show();
+    return false;
+});
+
+
+
+</script>
+
+
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+
+
+</body></html>
